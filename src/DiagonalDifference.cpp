@@ -21,18 +21,15 @@ int main() {
     int** matrix = new int*[size];
     for(int i = 0; i < size; ++i)
       matrix[i] = new int[size];
-      
-    for(int i = 0; i < size; i++) {
-        for(int j = 0; j < size; j++) {
-            cin >> matrix[i][j];
-        }
-    }  
-    
+        
     int sumLeftDiag = 0;
     int sumRightDiag = 0;
     
     for(int i = 0; i < size; i++) {
         for(int j = 0; j < size; j++) {
+        
+            cin >> matrix[i][j];
+            
             if(i == j) {
                 sumLeftDiag += matrix[i][j];  
             }
