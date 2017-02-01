@@ -1,2 +1,6 @@
+GPPPARAMS = -Wall -Werror
+CPPVERSION = --std=c++11
+
 % : %.cpp
-	g++ -Wall -o ../debug/$@ $< --std=c++11
+	g++ $(GPPPARAMS) -o ../debug/$@ $< $(CPPVERSION)
+
