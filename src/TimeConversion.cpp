@@ -22,21 +22,26 @@ int main() {
     string normalFormat;
     cin >> normalFormat;
     
-    //int i = 0;
-    
-    //int hour = stoi(normalFormat.substr(2));
-    
-    int hour = 0;
-    
+    string hr = normalFormat.substr(0, 2);
+    int hour = stoi(hr);
+       
     bool isDay = normalFormat.substr(8, 2) == "PM" ? true : false;
     
     if(isDay) {
-        hour += 12;    
-    } else if(hour == 12) {
-        hour = 0;
+        if(hour != 12) {
+            hour += 12;
+        }    
+    } else if ( hour == 12 ) {
+        hour = 0;        
     }
     
-    cout << hour << normalFormat;
+    if(hour < 10) {
+        hr = "0" + to_string(hour) + normalFormat.substr(2, 6);
+    } else {
+        hr = to_string(hour) + normalFormat.substr(2, 6);
+    }
+    
+    cout << hr;
 
     return 0;
 }
